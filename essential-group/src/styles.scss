@@ -137,6 +137,26 @@ body {
   font-size: large;
 }
 
+/* Search Bar Styling */
+.search-bar {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.75rem 1rem;
+  border: 2px solid #6FE6FC;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  margin: 1rem auto;
+  display: block;
+}
+
+.search-bar:focus {
+  border-color: #4ed8ef;
+  box-shadow: 0 0 0 3px rgba(111, 230, 252, 0.3);
+}
+
+
 /* Responsive */
 @media (min-width: 768px) {
   .hamburger {
