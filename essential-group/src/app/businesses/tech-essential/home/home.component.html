@@ -1,0 +1,30 @@
+<section class="tech">
+  <div class="intro">
+    <h1>
+      <img src="assets/techessentialslogo.jpeg" class="logo-icon">
+      Tech Essential
+    </h1>
+    <p>Discover our top-tier gadgets with full specifications and competitive pricing. Place your order today!</p>
+  </div>
+  <input type="text" [(ngModel)]="searchQuery" placeholder="Search items..." class="search-bar" />
+  <div class="gadget-list">
+    <div class="gadget-card" *ngFor="let gadget of filteredGadgets()">
+      <img [src]="gadget.image" [alt]="gadget.name">
+      <h2>{{ gadget.name }}</h2>
+      <ul>
+        <li><strong>Specifications:</strong> {{ gadget.specifications }}</li>
+        <li><strong>Condition:</strong> {{ gadget.condition }}</li>
+        <li><strong>Price:</strong> {{ gadget.price }}</li>
+      </ul>
+        <app-user-details-modal 
+          [visible]="showModal"
+          (submitted)="handleModalSubmit($event)"
+          (closed)="handleModalClose()">
+        </app-user-details-modal>
+
+        <div *ngIf="isLoading" class="loading-indicator">Loading...</div>
+
+      <button (click)="placeOrder(gadget)">Order Now</button>
+    </div>
+  </div>
+</section>

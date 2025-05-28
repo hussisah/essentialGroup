@@ -1,0 +1,31 @@
+<section class="properties">
+  <div class="intro">
+    <h1>
+      <img src="assets/logoprt4.png" class="logo-icon">
+       Essential Properties
+      </h1>
+    <p>Explore our exclusive listings of luxury real estate. View detailed specifications, location, and pricing. Book your dream property today!</p>
+  </div>
+  <input type="text" [(ngModel)]="searchQuery" placeholder="Search items..." class="search-bar" />
+  <div class="property-list">
+    <div class="property-card" *ngFor="let property of filteredProperties()">
+      <img [src]="property.image" [alt]="property.name">
+      <h2>{{ property.name }}</h2>
+      <ul>
+        <li><strong>Specifications:</strong> {{ property.specifications }}</li>
+        <li><strong>Location:</strong> {{ property.location }}</li>
+        <li><strong>Price:</strong> {{ property.price }}</li>
+      </ul>
+
+      <app-user-details-modal 
+        [visible]="showModal"
+        (submitted)="handleModalSubmit($event)"
+        (closed)="handleModalClose()">
+      </app-user-details-modal>
+
+      <div *ngIf="isLoading" class="loading-indicator">Loading...</div>
+
+       <button (click)="placeOrder(property)">Book Now</button>
+    </div>
+  </div>
+</section>

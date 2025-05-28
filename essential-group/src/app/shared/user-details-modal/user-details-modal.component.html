@@ -1,0 +1,12 @@
+<div class="modal-overlay" *ngIf="visible">
+      <div class="modal-content">
+        <h2>Enter Your Details</h2>
+        <form (ngSubmit)="submitForm()" #form="ngForm">
+          <input type="text" placeholder="Full Name" [(ngModel)]="name" name="name" required>
+          <input type="email" placeholder="Email" [(ngModel)]="email" name="email" required>
+          <input type="text" placeholder="National ID" [(ngModel)]="nationalId" name="nationalId" required>
+          <button type="submit" [disabled]="!form.valid">Submit</button>
+        </form>
+        <button (click)="cancel()">Cancel</button>
+      </div>
+    </div>

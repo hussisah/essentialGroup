@@ -1,0 +1,92 @@
+.motors {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.intro h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.intro p {
+  color: #4b5563;
+  margin-bottom: 2rem;
+}
+
+.car-list {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+
+.car-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.car-card img {
+  width: 400px;
+  height: 400px;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.car-card h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #1f2937;
+}
+
+.car-card ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.car-card li {
+  margin-bottom: 0.5rem;
+  color: #374151;
+}
+
+.car-card button {
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.car-card button:hover {
+  background-color: #4338ca;
+}
+
+/* logo */
+.logo-icon {
+  height: 30px;
+  width: 30px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+
+@media (min-width: 768px) {
+  .car-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .car-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -1,0 +1,14 @@
+<!-- footer.component.html -->
+<footer class="footer">
+  <div class="footer-content">
+    <p>&copy; <span id="year"></span> Essential Group. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+  function toggleMenu() {
+    const menu = document.getElementById("mobileMenu");
+    menu.classList.toggle("open");
+  }
+</script>

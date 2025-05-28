@@ -1,0 +1,11 @@
+<section *ngIf="!isAuthenticated" class="admin-login">
+  <h2>Admin Login</h2>
+  <input [(ngModel)]="password" placeholder="Enter admin password" type="password">
+  <button (click)="login()">Login</button>
+</section>
+
+<section *ngIf="isAuthenticated" class="dashboard">
+  <h1>Welcome to the Admin Dashboard</h1>
+  <!-- Add your admin controls here -->
+</section>
+

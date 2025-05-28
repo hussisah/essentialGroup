@@ -1,0 +1,160 @@
+/* You can add global styles to this file, and also import other style files */
+//@import "tailwindcss";
+/* General Layout */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9fafb;
+}
+
+/* Navbar */
+.navbar {
+  background: #6FE6FC;
+  color: white;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: "Libre Baskerville", serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: large;
+  
+
+}
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar .logo:hover {
+  color: #FFFA8D; 
+  font-size: 1.25rem;
+  font-weight: bold;
+  
+}
+.navbar .menu a {
+  margin: 0 0.5rem;
+  color: white;
+  text-decoration: none;
+}
+.navbar  .menu a:hover {
+  color: #FFFA8D;
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  text-align: center;
+  padding: 1rem;
+  background-color: #1f2937;
+}
+.mobile-menu a {
+  margin-bottom: 0.5rem;
+}
+.mobile-menu.open {
+  display: flex;
+}
+
+/* Landing */
+.landing {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+.landing h1 {
+  font-size: 2.25rem;
+  color: #1f2937;
+  font-weight: bold;
+}
+.landing h1 span {
+  color: #4f46e5;
+}
+.landing p {
+  color: #4b5563;
+  margin-top: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.business-cards {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s;
+  text-align: left;
+  text-decoration: none;
+  color: #1f2937;
+}
+.card:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+.card h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.card p {
+  color: #6b7280;
+}
+
+/* Footer */
+.footer {
+  
+  background-color: #6FE6FC;
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem 100px;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  margin-top: 4rem;
+  font-size: 0.875rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Libre Baskerville", serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: large;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+  .desktop-menu {
+    display: flex !important;
+  }
+  .mobile-menu {
+    display: none !important;
+  }
+  .business-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .business-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

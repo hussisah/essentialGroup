@@ -1,0 +1,130 @@
+/* Common section spacing */
+.about,
+.contact {
+  padding: 2rem 1rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  text-align: center;
+  background-color: #f9fafb;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+ font-family: "Libre Baskerville", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Section headers */
+.about h2,
+.contact h2 {
+  font-size: 1.75rem;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+/* Paragraph text */
+.about p,
+.contact p {
+  color: #4b5563;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Contact list */
+.contact ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.contact li {
+  color: #374151;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+/* Social media links */
+.social-media {
+  margin-top: 1rem;
+}
+
+.social-media a {
+  color: #4f46e5;
+  text-decoration: none;
+  font-weight: 500;
+  margin: 0 0.5rem;
+  transition: color 0.3s;
+}
+
+.social-media a:hover {
+  color: #4338ca;
+}
+.card .logo-img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* General icon styles */
+.icon {
+  vertical-align: middle;
+  margin-right: 0.5rem;
+  color: #6FE6FC; /* Indigo color */
+  transition: color 0.3s;
+}
+
+/* About section icons: larger */
+.about fa-icon.icon {
+  font-size: 2.5rem; /* Bigger icons */
+  color: #6FE6FC;
+}
+
+
+/* Contact section icons: smaller */
+.contact fa-icon.icon{
+  font-size: 1.25rem; /* Smaller icons */
+  color: #6FE6FC; /* Grayish */
+  margin-right: 0.3rem;
+}
+
+/* Social media icons inside contact */
+.contact .social-media fa-icon.icon {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  color: #6FE6FC; /* Blue */
+}
+
+.contact .social-media fa-icon.icon:hover {
+  color: #6FE6FC; /* Darker blue on hover */
+}
+
+/* Make links inside social-media block inline */
+.contact .social-media a {
+  text-decoration: none;
+  color: inherit;
+  margin-left: 0.3rem;
+}
+
+/* Optional: add spacing between list items */
+.contact ul {
+  list-style: none;
+  padding: 0;
+  margin-left: 0;
+}
+
+.contact ul li {
+  margin-bottom: 0.5rem;
+}
+
+.logo-icon {
+  height: 80px;
+  width: 80px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.icon:hover {
+  color: #FFFA8D; /* for Instagram pink hover, example */
+}
