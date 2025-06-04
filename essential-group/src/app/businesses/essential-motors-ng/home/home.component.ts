@@ -124,7 +124,7 @@ handleModalSubmit(userData: { name: string, email: string, nationalId: string })
 
   this.http.post('http://localhost:3000/orders', order).subscribe({
     next: () => {
-      alert(`Order placed for: ${this.selectedItem.name}`);
+      alert(`Order placed for: ${this.selectedItem.name} Check Spam folder for confirmation`);
       this.showModal = false;
       this.isLoading = false;
     },
