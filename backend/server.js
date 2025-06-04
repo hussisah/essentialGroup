@@ -7,70 +7,91 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Connect to your MongoDB (make sure MongoDB is running)
+// Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017/essentialOrders', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
+// Mongoose Schema
 const orderSchema = new mongoose.Schema({
   category: String,
   itemName: String,
   details: Object,
   price: String,
+  user: {
+    name: String,
+    email: String,
+    nationalId: String,
+    phoneNumber: String
+  },
   date: { type: Date, default: Date.now },
 });
 
+
 const Order = mongoose.model('Order', orderSchema);
 
-// Setup Nodemailer transporter
-import nodemailer from 'nodemailer';
-
-app.post('/orders', async (req, res) => {
-  const order = req.body;
-
-  // Save to MongoDB (already done)
-  await db.collection('orders').insertOne(order);
-
-  // Send email
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'hussainiisah60@gmail.com',
-      pass: '12345'
-    }
-  });
-
-  const mailOptions = {
-    from: 'hussainiisah60@gmail.com',
-    to: 'hussainiisah@gmail.com',
-    subject: 'New Order Received',
-    text: `Order from ${order.itemName}, ${order.category}, Price: ${order.price}`
-  };
-
-  transporter.sendMail(mailOptions, (err, info) => {
-    if (err) return res.status(500).send(err.toString());
-    res.send({ message: 'Order received and email sent!' });
-  });
+// Nodemailer transporter
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'spinnboy123@gmail.com',        // 👈 replace with your actual Gmail
+    pass: 'akyq peip nbso byia'      // 👈 use Gmail App Password, not regular password
+  }
 });
 
+// send Email function
+function sendEmailNotification(order) {
+  const mailOptions = {
+    from: 'spinnboy123@gmail.com',
+    to: 'spinnboy123@gmail.com',
+    subject: '📥 New Order Received',
+    text: `
+New Order Details:
+------------------------
+Item: ${order.itemName}
+Category: ${order.category}
+Price: ${order.price}
+Date: ${order.date}
+
+Customer Information:
+------------------------
+Name: ${order.user?.name}
+Email: ${order.user?.email}
+National ID: ${order.user?.nationalId}
+Phone: ${order.user?.phoneNumber}
+    `
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.error('❌ Email send error:', error);
+    } else {
+      console.log('📧 Email sent:', info.response);
+    }
+  });
+}
+
+
+// Single /orders endpoint
 app.post('/orders', async (req, res) => {
   try {
-    console.log('📦 New Order Received:', req.body); // 👈 This shows order data in your terminal
+    console.log('📦 New Order:', req.body);
 
     const order = new Order(req.body);
     await order.save();
 
-    sendEmailNotification(order); // 👈 Send email when new order is saved
+    await sendEmailNotification(order); // send mail
 
-    res.status(201).json({ message: 'Order saved successfully' });
+    res.status(201).json({ message: 'Order saved and email sent' });
   } catch (err) {
-    console.error('❌ Error saving order:', err); // 👈 Logs errors too
-    res.status(500).json({ message: 'Error saving order', error: err });
+    console.error('❌ Error:', err);
+    res.status(500).json({ message: 'Order failed', error: err });
   }
 });
 
+// Server
 const PORT = 3000;
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
 });

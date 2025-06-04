@@ -1,3 +1,9 @@
+*{
+  font-family: "Libre Baskerville", serif;
+  font-weight: 500;
+   font-size: large;
+}
+
 .motors {
   padding: 2rem 1rem;
   max-width: 1200px;
@@ -8,7 +14,7 @@
 .intro h1 {
   font-size: 2rem;
   font-weight: bold;
-  color: #1f2937;
+  color: #6FE6FC;
   margin-bottom: 0.5rem;
 }
 
@@ -57,7 +63,7 @@
 }
 
 .car-card button {
-  background-color: #4f46e5;
+  background-color: #6FE6FC;
   color: white;
   border: none;
   padding: 0.5rem 1rem;

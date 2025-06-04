@@ -28,7 +28,6 @@ export const routes: Routes = [
   { path: 'admin-login', 
     component: AdminLoginComponent 
   },
-  
   { path: 'admin-dashboard', 
     component: AdminDashboardComponent 
   }

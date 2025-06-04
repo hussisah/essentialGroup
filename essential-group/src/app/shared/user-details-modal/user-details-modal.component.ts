@@ -10,15 +10,16 @@ import { FormsModule } from '@angular/forms';
 })
 export class UserDetailsModalComponent {
   @Input() visible = false;
-  @Output() submitted = new EventEmitter<{ name: string, email: string, nationalId: string }>();
+  @Output() submitted = new EventEmitter<{ name: string, email: string, nationalId: string, phoneNumber: string }>();
   @Output() closed = new EventEmitter<void>();
 
   name = '';
   email = '';
   nationalId = '';
+  phoneNumber = '';
 
   submitForm() {
-    this.submitted.emit({ name: this.name, email: this.email, nationalId: this.nationalId });
+    this.submitted.emit({ name: this.name, email: this.email, nationalId: this.nationalId, phoneNumber: this.phoneNumber });
   }
 
   cancel() {
