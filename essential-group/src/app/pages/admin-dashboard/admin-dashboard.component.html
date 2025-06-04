@@ -3,6 +3,7 @@
     <h1>Welcome to the Admin Dashboard</h1>
     <button class="logout-btn" (click)="logout()">Logout</button>
   </header>
+  <p style="color: #2e3739 ; font-size: large; font-family: Libre Baskerville, serif; font-weight: 500;font-style:normal ;" >Manage your orders and customers efficiently. Here are the details:</p>
 
   <div *ngIf="orders.length > 0; else noOrders" class="orders-container">
     <ng-container *ngFor="let order of orders">
