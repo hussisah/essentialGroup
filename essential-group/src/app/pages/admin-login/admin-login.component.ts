@@ -11,16 +11,37 @@ import { FormsModule } from '@angular/forms';
 })
 export class AdminLoginComponent {
  password = '';
-  correctPassword = 'admin123'; // 🔐 Replace with your secure admin password
+  correctPassword = 'password'; // 🔐 Replace with your secure admin password
 
   constructor(private router: Router) {}
+
+  ngOnInit() {
+  const isAdmin = sessionStorage.getItem('isAdmin');
+  if (isAdmin !== 'true') {
+    this.router.navigate(['/admin-login']);
+    return;
+  }
+
+  this.fetchOrders(); // ⬅ fetch orders only if authenticated
+}
+
 
   login() {
     if (this.password === this.correctPassword) {
       sessionStorage.setItem('isAdmin', 'true');
-      this.router.navigate(['/admin-dashboard']);
+      this.router.navigate(['/admin']);
     } else {
       alert('Incorrect password');
     }
+  }
+
+  logout() {
+    sessionStorage.removeItem('isAdmin');
+    this.router.navigate(['/admin-login']);
+  }
+
+  fetchOrders() {
+    // This method should be implemented to fetch orders from the server
+    // For now, it can be left empty or you can add a mock implementation
   }
 }

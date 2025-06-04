@@ -1,0 +1,103 @@
+.dashboard {
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    h1 {
+      font-size: 2rem;
+      color: #6FE6FC;
+    }
+
+    .logout-btn {
+      background-color: #6FE6FC;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+
+      &:hover {
+        background-color: #007185;
+      }
+    }
+  }
+
+  .orders-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .order-card {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    h3 {
+      margin-top: 0;
+      color: #2c3e50;
+    }
+
+    pre {
+      background: #f4f4f4;
+      padding: 0.5rem;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    .customer-info {
+      margin-top: 1rem;
+
+      p {
+        margin: 0.25rem 0;
+      }
+    }
+
+    .order-date {
+      display: block;
+      margin-top: 0.5rem;
+      color: #777;
+      font-size: 0.85rem;
+    }
+
+    .actions {
+      margin-top: 1rem;
+      text-align: right;
+
+      .delete-btn {
+        color: #6FE6FC;
+        border: none;
+        padding: 0.4rem 0.8rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+
+        &:hover {
+          background-color: #6FE6FC;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .no-orders {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    margin-top: 2rem;
+  }
+}

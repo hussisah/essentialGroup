@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
-import { faEnvelope, faHouse, faLaptop, faGlobe, faCar} from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faHouse, faLaptop, faGlobe, faCar, faPhone} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-landing',
@@ -18,4 +18,5 @@ export class LandingComponent {
   faLaptop = faLaptop;
   faGlobe = faGlobe;
   faCar = faCar;
+  faPhone = faPhone;
 }

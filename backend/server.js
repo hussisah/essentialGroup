@@ -97,19 +97,23 @@ Thank you for choosing Essential Group!`
 // Single /orders endpoint
 app.post('/orders', async (req, res) => {
   try {
-    console.log('📦 New Order:', req.body);
+    const { itemName, category, price, user } = req.body;
+
+    if (!itemName || !category || !price || !user || !user.email) {
+      return res.status(400).json({ message: 'Invalid order data' });
+    }
 
     const order = new Order(req.body);
     await order.save();
 
-    sendEmailNotification(order); // Send both emails
-
+    sendEmailNotification(order);
     res.status(201).json({ message: 'Order saved and emails sent' });
   } catch (err) {
     console.error('❌ Error:', err);
     res.status(500).json({ message: 'Order failed', error: err });
   }
 });
+
 
 // Get all orders
 app.get('/orders', async (req, res) => {
@@ -120,7 +124,19 @@ app.get('/orders', async (req, res) => {
     res.status(500).json({ message: 'Error retrieving orders', error: err });
   }
 });
-
+// Delete an order by ID
+app.delete('/orders/:id', async (req, res) => {
+  try {
+    const result = await Order.findByIdAndDelete(req.params.id);
+    if (!result) {
+      return res.status(404).json({ message: 'Order not found' });
+    }
+    res.json({ message: 'Order deleted successfully' });
+  } catch (err) {
+    console.error('❌ Error deleting order:', err);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
 
 // Server
 const PORT = 3000;
