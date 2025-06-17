@@ -16,6 +16,7 @@ mongoose.connect('mongodb://localhost:27017/essentialOrders', {
 // Mongoose Schema
 const orderSchema = new mongoose.Schema({
   category: String,
+  id: Number,
   itemName: String,
   details: Object,
   price: String,
