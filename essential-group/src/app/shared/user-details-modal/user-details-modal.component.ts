@@ -4,9 +4,10 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-user-details-modal',
+  standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './user-details-modal.component.html',
-  styleUrl: './user-details-modal.component.scss'
+  styleUrls: ['./user-details-modal.component.scss']
 })
 export class UserDetailsModalComponent {
   @Input() visible = false;

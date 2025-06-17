@@ -1,0 +1,41 @@
+<div class="cart">
+  <h2>Your Cart</h2>
+  <p>Welcome to your cart. Here you can review your selected items before proceeding to checkout.</p>
+
+  <div *ngIf="cartItems.length > 0; else emptyCart">
+    <div *ngFor="let item of cartItems; let i = index" class="cart-item">
+      <div class="item-card">
+        <div class="item-info">
+          <p class="item-name">{{ item.name }}</p>
+          <p class="item-price">Price: {{ item.price | currency:'₦' }}</p>
+        </div>
+        
+        <div class="item-actions">
+          <label>
+            Quantity:
+            <input type="number" [value]="item.quantity" (input)="updateQuantity(i, $event)" min="1" />
+          </label>
+          <button class="remove-btn" (click)="removeItem(item.id)">Remove</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-total">
+      <p><strong>Total:</strong> {{ total | currency:'₦' }}</p>
+      <div class="cart-buttons">
+        <button class="clear-btn" (click)="clearCart()">Clear Cart</button>
+        <button class="checkout-btn" (click)="proceedToCheckout()">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #emptyCart>
+    <p>Your cart is empty.</p>
+  </ng-template>
+</div>
+
+<app-user-details-modal
+  [visible]="showModal"
+  (submitted)="onModalSubmit($event)"
+  (closed)="onModalClose()">
+</app-user-details-modal>

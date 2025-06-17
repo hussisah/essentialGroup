@@ -27,6 +27,10 @@ export const routes: Routes = [
   {
   path: 'admin-login',
   loadComponent: () => import('./pages/admin-login/admin-login.component').then(m => m.AdminLoginComponent)
+  },
+  {
+  path: 'cart',
+    loadComponent: () => import('./shared/cart/cart.component').then(m => m.CartComponent)
   }
   
 ];

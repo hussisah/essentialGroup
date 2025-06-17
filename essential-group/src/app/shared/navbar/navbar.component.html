@@ -1,22 +1,25 @@
-<!-- navbar.component.html -->
 <nav class="navbar">
   <div class="container">
     <div class="logo" routerLink="/">
       <img src="assets/logoeg4.png" height="80px" width="80px" alt="Essential Group Logo">  
-   </div>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle Menu">
-      ☰
-    </button>
+    </div>
+    
     <div class="menu desktop-menu">
-      <a href="/essential-motors">Essential Motors</a>
-      <a href="/tech-essential">Tech Essentials</a>
-      <a href="/essential-properties">Essential Properties</a>
-
+      <a routerLink="/essential-motors">Essential Motors</a>
+      <a routerLink="/tech-essential">Tech Essentials</a>
+      <a routerLink="/essential-properties">Essential Properties</a>
+      <a routerLink="/cart">
+        🛒 Cart ({{ cartService.getItems().length }})
+      </a>
     </div>
   </div>
+
   <div id="mobileMenu" class="menu mobile-menu">
-      <a href="/essential-motors">Essential Motors</a>
-      <a href="/tech-essential">Tech Essentials</a>
-      <a href="/essential-properties">Essential Properties</a>
+    <a routerLink="/essential-motors">Essential Motors</a>
+    <a routerLink="/tech-essential">Tech Essentials</a>
+    <a routerLink="/essential-properties">Essential Properties</a>
+    <a routerLink="/cart">
+      🛒 Cart ({{ cartService.getItems().length }})
+    </a>
   </div>
 </nav>

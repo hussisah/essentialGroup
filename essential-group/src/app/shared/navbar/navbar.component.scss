@@ -1,0 +1,10 @@
+.cart-link {
+  color: #fff;
+  margin-left: auto;
+  text-decoration: none;
+  font-weight: bold;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
