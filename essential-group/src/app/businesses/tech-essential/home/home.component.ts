@@ -28,7 +28,7 @@ addToCart(item: any) {
     ...item,
     price: numericPrice,
     quantity: 1,
-    category: 'motors'
+    category: 'gadgets' // Adjust category as needed
   };
   this.cartService.addToCart(formattedItem);
 }
