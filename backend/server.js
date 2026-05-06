@@ -20,6 +20,7 @@ const orderSchema = new mongoose.Schema({
   itemName: String,
   details: Object,
   price: String,
+  quantity:Number,
   user: {
     name: String,
     email: String,
